@@ -8,15 +8,21 @@
     <title>e-Exam portal</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap" rel="stylesheet">
     <style>
-        *{
+        * {
             font-family: 'Open Sans', sans-serif;
         }
-        h1{
+        
+        h1 {
             font-weight: 400;
         }
-        p{
+        
+        p {
             font-weight: 300;
             font-size: 15px;
         }
@@ -25,20 +31,72 @@
 </head>
 
 <body>
-    <nav>
-        <a href="E-Exam.html">E-exam</a>
-        <a href="openfor.html">OpenForum</a>
-        <a href="erepo.html">E-Repository</a>
-        <a href="mywall.html">MyWall</a>
-        <div style="float: right;">
-            <input type="text" placeholder="Search..">
-            <a href="registration.html">Login</a>
-        </div>
+    <nav class="navbar navbar-expand-lg bg-light navbar-light justify-content-between">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
+        <div class="collapse navbar-collapse dropdown" id="navbarSupportedContent">
+
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            E-Exam
+                        </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            E-Repository
+                        </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Open Forum
+                        </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                </li>
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="mywall.html">My Wall</a>
+                    </li>
+                </ul>
+            </ul>
+            <div class="collapse navbar-collapse" id="navmenu">
+                <ul class="navbar-nav ms-auto">
+
+                    <form class="form-inline my-2 my-lg-0">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    </form>
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </ul>
+            </div>
+        </div>
+        <div style="float: right;">
+            <a class='nav-link text-dark' href="registration.html">Login</a>
+        </div>
     </nav>
+
+
     <h1 style="text-align: center;">e-Exam Portal</h1>
     <div class="container" style="text-align: center; margin-top: -50px;">
-        <img src="Onlinetest.png" width="500" height="500" alt="onlinexam">
+        <img src="/img/Onlinetest.png" width="500" height="500" alt="onlinexam">
     </div>
     <div style="text-align: center;">
         <h2>
@@ -46,24 +104,21 @@
         </h2>
         <p style="font-size: large ;">
             Conducting Online Exams made Easier!<br>
-        <p>
-            End-to-end online exam solution that is hosted on the cloud so you don’t have to worry about legacy software
-            systems.
-        </p>
-        <p>
-            Whether you’ve a 1,000 students appearing at a time or 100,000, the software will take care of it.
-        </p>
-        <p>
-            Upload bulk questions, randomize question sequences, and even configure the result publishing date with just
-            a few clicks.
-        </p>
-        <p>
-            Proctors can block navigation and disable keyboard shortcuts to conduct a cheating free online exam.
-        </p>
-        <p>
-            Email and SMS integration available for communication with examinees that allows you to share key updates
-            and notifications.
-        </p>
+            <p>
+                End-to-end online exam solution that is hosted on the cloud so you don’t have to worry about legacy software systems.
+            </p>
+            <p>
+                Whether you’ve a 1,000 students appearing at a time or 100,000, the software will take care of it.
+            </p>
+            <p>
+                Upload bulk questions, randomize question sequences, and even configure the result publishing date with just a few clicks.
+            </p>
+            <p>
+                Proctors can block navigation and disable keyboard shortcuts to conduct a cheating free online exam.
+            </p>
+            <p>
+                Email and SMS integration available for communication with examinees that allows you to share key updates and notifications.
+            </p>
 
 
         </p>

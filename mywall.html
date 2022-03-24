@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+
+    <link rel="stylesheet" href="style.css">
+
+
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.3.0/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.3.0/mapbox-gl.css' rel='stylesheet' />
+
+
+
+    <title>Anubhav's portfolio</title>
+</head>
+
+<body>
+    <!-- Nav bar -->
+
+
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark py-3">
+
+        <div class="container">
+            <a href="#" class="navbar-brand">ANUBHAV PATNAIK</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+
+            <div class="collapse navbar-collapse" id="navmenu">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a href="https://instagram.com/anubhavclicks" class="nav-link"> Instagram</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="https://www.github.com/codebotx" class="nav-link"> Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="mailto:anubhabr50@gmail.com" class="nav-link"> Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#learnaboutme" class="nav-link"> About Me</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- Showcase -->
+
+    <div id="particles-js"></div>
+    <section class="bg-dark text-light p-5  text-sm-center">
+        <div class="container">
+
+            <div class="d-sm-flex align-items-center justify-content-between">
+                <div class="img-home">
+                    <h1>Become a <span class="text-secondary">Web Developer</span> </h1>
+                    <p class="lead my-4">
+                        Hi I am Anubhav Patnaik, an aspiring machine learning engineer and a web developer enthusiast. This is my first webpage and I have created this webpage using html and bootstrap.
+                    </p>
+                    <a href="https://www.youtube.com/watch?v=4sosXZsdy-s&ab_channel=TraversyMedia">
+                        <button class="btn btn-primary btn-sm">Resource</button>
+                    </a>
+                </div>
+                <img class="img-fluid w-50 d-none d-sm-block" src="img/undraw_programming_2svr.svg" alt="">
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Send mail -->
+
+
+    <section class="bg-primary text-light p-5">
+        <div class="container">
+
+            <div class="d-md-flex justify-content-between align-items-center">
+                <h4 class="mb-3 mb-md-0 ">
+                    Sign up for project collaborations on ongoing projects
+                </h4>
+                <div class="input-group mail-input">
+                    <input type="text" class="form-control" placeholder="Enter topic" aria-label="Recipient's username" aria-describedby="button-addon2">
+                    <button class="btn btn-dark btn-lg" data-bs-toggle="modal" data-bs-target="#mailto" type="button">
+            Send
+          </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Boxes -->
+    <section class="p-5">
+        <div class="container">
+            <div class="row text-center g-4">
+                <h2 class="text-center text-secondary ">PROJECTS</h2>
+
+                <div class="col-md">
+                    <div class="card bg-dark text-light w-100 h-100">
+                        <div class="card-body text=center">
+                            <div class="h1 mb-3">
+                                <i class="bi bi-github"></i>
+                            </div>
+                            <h5 class="card-title">MOVIE RATING PREDICTION</h5>
+                            <h6 class="card-subtitle mb-2 text-bold text-muted">• Training a Multinomial Naive Bayes Model to classify movie reviews as good and bad</h6>
+                            <p class="card-text"> Using the bag of words model to make a NLP Pipeline. Implementing stopwords removal and stemming to clean the data. Using Laplace smoothing to solve the problem of zero probability and further enhance the model. Technologies
+                                : Natural Language Processing Toolkit,scikit-learn content.
+                            </p>
+                            <a href="https://github.com/codebotx/Movie-rating-prediction" class="btn btn-dark">Resources</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md">
+                    <div class="card bg-light text-dark w-100 h-100">
+                        <div class="card-body tex=center">
+                            <div class="h1 mb-3">
+                                <i class="bi bi-github"></i>
+                            </div>
+                            <h5 class="card-title">CLASSIFYING MNIST DIGIT DATASET</h5>
+                            <h6 class="card-subtitle mb-2 text-bold text-muted">• Trained a Convolutional Neural Network using keras to classify the handwritten digits(0-9)</h6>
+                            <p class="card-text"> Used Max Pooling to further enhance the perception of every ﬁlter. Made use of the dropout technique to reduce overﬁtting and to increase the accuracy Technologies:Keras, Google Colab</p>
+                            <a href="https://github.com/codebotx/Classifying-mnist-digit-dataset" class="btn btn-dark mt-5 ">Resources</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md">
+                    <div class="card bg-dark text-light w-100 h-100">
+                        <div class="card-body text=center">
+                            <div class="h1 mb-3">
+                                <i class="bi bi-github"></i>
+                            </div>
+                            <h5 class="card-title">WEB XR</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">• Building a 3d webpage with AR and VR capabilities</h6>
+                            <p class="card-text">WebXR is a group of standards which are used together to support rendering 3D scenes to hardware designed for presenting virtual worlds. Three.js is a cross-browser JavaScript library and application programming interface used
+                                to create and display animated 3D computer graphics in a web browser. </p>
+                            <a href="https://github.com/codebotx/webxr" class=" btn btn-dark mt-3 ">Resources</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Learn Sections -->
+    <section id="learnaboutme" class="p-5">
+        <div class="container">
+            <div class="row align-items-center justify-content-between">
+                <div class="col-md">
+                    <img class="img-fluid " src="img/undraw_feeling_proud_qne1.svg" alt="">
+                </div>
+                <div class="col-md p-5">
+                    <h2 class="text-center">
+                        Profesional Introduction
+                    </h2>
+                    <p class="lead">
+                        Hi, I am Anubhab Patnaik. I am from Bhubaneswar, Odisha. I am currently pursuing my B.Tech studying computer science and engineering in Silicon Institute of Technology, Bhubaneswar. I did my 10th from DAV, Bistupur and secured 9.2 CGPA. I did my 12th
+                        from FIITJEE, Hyderabad and secured 84%.
+                    </p>
+                    <p class="lead"> I am currently studying machine learning and AI focusing on Deep learning and I am pursuing my career towards that. I have done a few small projects in this field and will be working under an assistant professor in our college to do
+                        an extensive research cum project and will be writing about it soon. Apart from that I am interested in competitive coding, and I am a ranked coder in HackerRank. I have proficient knowledge in C, C++, and Python. I have recently
+                        started web development usingHTML and bootstrap.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="learnaboutme" class="p-5 bg-dark text-light">
+        <div class="container">
+            <div class="row align-items-center justify-content-between">
+
+                <div class="col-md p-5">
+                    <h2 class="text-center">
+                        Interests and hobbies
+                    </h2>
+                    <p class="lead">
+                        My hobbies are music and photography. I also have interests in cyber security, IOT and theoretical physics. I have attended various workshops on life in space and have a profound interest in astrophysics and space. I like to do graphic designing, video
+                        editing, poster making and illustrations. My hobbies also include debates, MUNs and I have won all the MUNs hosted in college yet. I am a big-time foodie and I love to cook and travel a lot.
+                    </p>
+                </div>
+                <div class="col-md">
+                    <img class="img-fluid " src="img/undraw_on_the_office_fbfs.svg" alt="">
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Contact and map -->
+
+    <!-- Contact & Map -->
+    <section class="p-5 bg-dark text-white">
+        <div class="container ">
+            <div class="row g-4">
+                <div class="col-md ">
+                    <h2 class="text-center mb-4 ">Contact Info</h2>
+                    <ul class="list-group list-group-flush lead">
+                        <li class="list-group-item bg-dark text-white">
+                            <span class="fw-bold ">Location:</span> Patia, Bhubaneswar
+                        </li>
+                        <li class="list-group-item bg-dark text-white">
+                            <span class="fw-bold">Phone no:</span> 9430332116
+                        </li>
+                        <li class="list-group-item bg-dark text-white">
+                            <span class="fw-bold">Email ID:</span> anubhabr50@gmail.com
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md">
+                    <div id="map"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="p-5 bg-dark text-white text-center position-relative">
+        <div class="container">
+            <p class="lead">Copyright &copy; 2021 Anubhab Patnaik</p>
+
+            <a href="#" class="position-absolute bottom-0 end-0 p-5">
+                <i class="bi bi-arrow-up-circle h1"></i>
+            </a>
+        </div>
+    </footer>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="mailto" tabindex="-1" aria-labelledby="enrollLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="enrollLabel">Enrollment</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p class="lead">Fill out this form and I will get back to you</p>
+                    <form>
+                        <div class="mb-3">
+                            <label for="first-name" class="col-form-label">
+                First Name:
+              </label>
+                            <input type="text" class="form-control" id="first-name" />
+                        </div>
+                        <div class="mb-3">
+                            <label for="last-name" class="col-form-label">Last Name:</label>
+                            <input type="text" class="form-control" id="last-name" />
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="col-form-label">Email:</label>
+                            <input type="email" class="form-control" id="email" />
+                        </div>
+                        <div class="mb-3">
+                            <label for="phone" class="col-form-label">Phone:</label>
+                            <input type="tel" class="form-control" id="phone" />
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+            Close
+          </button>
+                    <button type="button" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="js/particle.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+
+    <!-- <script src='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.js'></script> -->
+
+    <script>
+        mapboxgl.accessToken = 'pk.eyJ1IjoiYW51YmhhYnI1MCIsImEiOiJja3B5NzJ0bzcwZDA1MnRxY2c1MnFoZXhzIn0.B8PLHdYBRzVvxRJOFE-Dbw';
+        var map = new mapboxgl.Map({
+            container: 'map', // container ID
+            style: 'mapbox://styles/mapbox/streets-v11', // style URL
+            center: [85.8, 20.3], // starting position [lng, lat]
+            zoom: 9 // starting zoom
+        });
+    </script>
+
+
+</body>
+
+</html>
