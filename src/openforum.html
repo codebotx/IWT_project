@@ -23,8 +23,9 @@
             x.push(document.getElementById("comment").value);
             y.push(document.getElementById("exampleInputEmail1").value);
             document.getElementById('creatediv').insertAdjacentHTML(
-                'afterbegin',
-                `<div class='w-100 mt-3' style="max-width: 1000px">
+                'beforeend',
+                `<Container class='d-flex align-items-center justify-content-center h-100' style=" min-height: 30vh " id="creatediv">
+                <div class='w-100 mt-3' style="max-width: 1000px">
                     <div class="card">
                         <div class="card-body">
                             <form>
@@ -47,8 +48,13 @@
                         </div>
                     </div>
                 </div>
+            </Container>
+            <br>
                 `
             );
+
+
+
         }
     </script>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -87,10 +93,8 @@
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" href="#">Question Answers</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
+
+
                             <li><a class="dropdown-item" href="notes.html">Notes and resources</a></li>
                         </ul>
                     </li>
@@ -120,10 +124,10 @@
             </div>
         </div>
     </nav>
-    <Container class='d-flex align-items-center justify-content-center h-100' style=" min-height: 30vh " id="creatediv">
+    <Container id="creatediv">
     </Container>
 
-    <Container class='d-flex align-items-center justify-content-center h-100' style=" min-height: 30vh ">
+    <Container class='d-flex align-items-center justify-content-center h-100' style=" min-height: 40vh ">
         <div class='w-100' style="max-width: 1000px">
             <div class="card">
                 <div class="card-body">
