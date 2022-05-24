@@ -42,9 +42,95 @@ if (isset($_POST['SubmitButton'])) { // Check if form was submitted
             font-size: 15px;
         }
     </style>
+    <script>
+        function formValidation() {
+            var x = document.forms["myForm"]["num"].value;
+            if (x == "") {
+                alert("Please enter a number");
+                return false;
+            }
+        }
+    </script>
 </head>
 
 <body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="../../index.html">e-SIT</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            E-Exam
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#">Educational Institue</a></li>
+                            <li><a class="dropdown-item" href="#">Corporate</a></li>
+                            <li><a class="dropdown-item" href="#">Schools</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Entrance Exams</a></li>
+
+                        </ul>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            E-Repository
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="../src/branch.html#1">CSE</a></li>
+                            <li><a class="dropdown-item" href="../src/branch.html#2">ECE</a></li>
+                            <li><a class="dropdown-item" href="../src/branch.html#3">EEE</a></li>
+                            <li><a class="dropdown-item" href="../src/branch.html#4">EIE</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+
+
+                            <li><a class="dropdown-item" href="../src/notes.html">Notes and resources</a></li>
+                        </ul>
+                    </li>
+
+
+                    <li>
+                        <a class="nav-link " href="../src/openforum.html" role="button" aria-expanded="false">
+                            Open Forum
+                        </a>
+
+                    </li>
+
+
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="../src/index.html" tabindex="-1">Database Integration</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../src/portfolio.html" tabindex="-1">About Me</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" tabindex="-1">Marks Predictor</a>
+                    </li>
+
+                </ul>
+                <form class="d-flex">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+                <ul class="navbar-nav  mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../src/login.html" tabindex="-1">Login</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
 
     <div class='d-flex align-items-center justify-content-center  mt-5' style=" min-height: 20vh ">
         <div>
@@ -52,17 +138,17 @@ if (isset($_POST['SubmitButton'])) { // Check if form was submitted
                 <div class="card">
                     <div class="card-body">
                         <h1 class="card-title text-center">Marks Predictor</h1>
-                        <form action="#" method="post">
+                        <form action="#" method="post" >
                             <div class="container-fluid pt-2">
                                 <div class="mb-3">
-                                    <label for="exampleInputEmail1" class="form-label">Hours Studied: <p> ( <i>Range between 0-8</i> )</p> </label>
+                                    <label for="nums" class="form-label">Hours Studied: <p> ( <i>Range between 0-8</i> )</p> </label>
 
-                                    <input type="number" class="form-control" id="num" name="num">
+                                    <input type="number"min="0" max="8" class="form-control" id="num" name="num" text='black'>
                                 </div>
                             </div>
 
                             <div class=" d-flex align-items-center justify-content-center ">
-                                <button type="submit" class="btn btn-primary mx-1 " id="butsubm" name="SubmitButton">Predict</button>
+                                <button type="submit" class="btn btn-primary mx-1 " id="butsubm" name="SubmitButton" onSubmit = >Predict</button>
 
                             </div>
                             <div class="card my-2">
