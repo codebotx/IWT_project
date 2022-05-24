@@ -15,37 +15,33 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-
-
                     <li class="nav-item">
-                        <a class="nav-link" href=" ./createdb.html " tabindex="-1">Crt DB</a>
+                        <a class="nav-link" href=" ./createdb.php " tabindex="-1">Crt DB</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href=" ./createtable.html " tabindex="-1">Crt TB</a>
+                        <a class="nav-link" href=" ./createtable.php " tabindex="-1">Crt TB</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href=" ./addstudent.html " tabindex="-1">Ins</a>
+                        <a class="nav-link" href=" ./addstudent.php " tabindex="-1">Ins</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href=" ./update.html " tabindex="-1">Upd</a>
+                        <a class="nav-link" href=" ./update.php " tabindex="-1">Upd</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href=" ./delete.html " tabindex="-1">Del</a>
+                        <a class="nav-link" href=" ./delete.php " tabindex="-1">Del</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href=" ./getdata.html " tabindex="-1">Disp *</a>
+                        <a class="nav-link" href=" ./getdata.php " tabindex="-1">Disp *</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href=" ./displaybycategory.html " tabindex="-1">Disp w Cat</a>
+                        <a class="nav-link" href=" ./displaybycategory.php " tabindex="-1">Disp w Cat</a>
                     </li>
                 </ul>
-
-
             </div>
         </div>
     </nav>
