@@ -2,11 +2,13 @@
 if (isset($_POST['SubmitButton'])) { // Check if form was submitted
     $input = $_POST['num']; // Get input text
     $message = "Success! You entered: " . $input;
-    $myfile = fopen("./ml/c.txt", "w") or die("Unable to open file!");
+    $myfile = fopen("./c.txt", "w") or die("Unable to open file!");
     fwrite($myfile, $input);
     fclose($myfile);
-    $command = escapeshellcmd('conda activate base');
-    $command = escapeshellcmd('python ../ml/mp.py');
+    // $handle = popen('../src/ml/mp.py', 'r');
+    // echo "'$handle'; " . gettype($handle) . "\n";
+    $output = `conda activate base && python mp.py`;
+    // echo "<pre> $output </pre>";
 
 }
 ?>
@@ -69,7 +71,7 @@ if (isset($_POST['SubmitButton'])) { // Check if form was submitted
                                     <p class="card-text" id="pred">
                                         <?php
                                         if (isset($_POST['SubmitButton'])) {
-                                            $myfile = fopen("./ml/output.txt", "r") or die("Unable to open file!");
+                                            $myfile = fopen("./output.txt", "r") or die("Unable to open file!");
                                             $pred = fgets($myfile);
                                             echo $pred;
                                             fclose($myfile);
