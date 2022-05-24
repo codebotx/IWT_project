@@ -54,7 +54,7 @@ if (isset($_POST['SubmitButton'])) { // Check if form was submitted
 </head>
 
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
             <a class="navbar-brand" href="../../index.html">e-SIT</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -138,17 +138,17 @@ if (isset($_POST['SubmitButton'])) { // Check if form was submitted
                 <div class="card">
                     <div class="card-body">
                         <h1 class="card-title text-center">Marks Predictor</h1>
-                        <form action="#" method="post" >
+                        <form action="#" method="post">
                             <div class="container-fluid pt-2">
                                 <div class="mb-3">
                                     <label for="nums" class="form-label">Hours Studied: <p> ( <i>Range between 0-8</i> )</p> </label>
 
-                                    <input type="number"min="0" max="8" class="form-control" id="num" name="num" text='black'>
+                                    <input type="number" min="0" max="8" class="form-control" id="num" name="num" text='black'>
                                 </div>
                             </div>
 
                             <div class=" d-flex align-items-center justify-content-center ">
-                                <button type="submit" class="btn btn-primary mx-1 " id="butsubm" name="SubmitButton" onSubmit = >Predict</button>
+                                <button type="submit" class="btn btn-primary mx-1 " id="butsubm" name="SubmitButton" >Predict</button>
 
                             </div>
                             <div class="card my-2">

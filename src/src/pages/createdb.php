@@ -7,18 +7,9 @@
 </head>
 <html>
 
+
+
 <body>
-    <script>
-        function submitpost() {
-            event.preventDefault();
-            document.getElementById('sname').innerHTML = document.getElementById('servername').value;
-            document.getElementById('uname').innerHTML = document.getElementById('username').value;
-            document.getElementById('dname').innerHTML = document.getElementById('databasename').value;
-            document.getElementById("formsub").submit();
-        }
-    </script>
-
-
 
     <nav class="navbar navbar-expand-lg navbar-dark top">
         <div class="container-fluid">
@@ -31,30 +22,30 @@
 
 
                     <li class="nav-item">
-                        <a class="nav-link" href=" ./createdb.html " tabindex="-1">Crt DB</a>
+                        <a class="nav-link" href=" ./createdb.php " tabindex="-1">Crt DB</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href=" ./createtable.html " tabindex="-1">Crt TB</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href=" ./addstudent.html " tabindex="-1">Ins</a>
+                        <a class="nav-link" href=" ./createtable.php " tabindex="-1">Crt TB</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href=" ./update.html " tabindex="-1">Upd</a>
+                        <a class="nav-link" href=" ./addstudent.php " tabindex="-1">Ins</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href=" ./delete.html " tabindex="-1">Del</a>
+                        <a class="nav-link" href=" ./update.php " tabindex="-1">Upd</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href=" ./getdata.html " tabindex="-1">Disp *</a>
+                        <a class="nav-link" href=" ./delete.php " tabindex="-1">Del</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href=" ./displaybycategory.html " tabindex="-1">Disp w Cat</a>
+                        <a class="nav-link" href=" ./getdata.php " tabindex="-1">Disp *</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href=" ./displaybycategory.php " tabindex="-1">Disp w Cat</a>
                     </li>
                 </ul>
 
@@ -68,7 +59,7 @@
                 <div class="crd mx-auto">
 
                     <h2 class="subheading">Create Database</h2>
-                    <form method="POST" action="../php/create_db.php" class="mt-4 d-flex flex-column" id="formsub">
+                    <form action="#" method="post" class="mt-4 d-flex flex-column" id="formsub">
                         <div class="form-group">
                             <label for="exampleInputEmail1">Server Name</label>
                             <input name="servername" type="text" class="form-control" id="servername" aria-describedby="emailHelp" placeholder="Name your Server" />
@@ -86,7 +77,7 @@
                             <input name="databasename" type="text" class="form-control" id="databasename" placeholder="DBName" />
                         </div>
 
-                        <button type="submit" class="btn__primary mt-2" onclick="submitpost()">Submit</button>
+                        <button type="submit" class="btn__primary mt-2" id="butsubm" name="SubmitButton">Submit</button>
                     </form>
                 </div>
             </div>
@@ -95,11 +86,17 @@
                     <div class="crd mx-auto">
 
                         <h2 class="subheading">Database Created</h2>
-                        <form method="POST" action="../php/create_db.php" class="mt-4 d-flex flex-column">
+                        <form class="mt-4 d-flex flex-column">
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Server Name</label>
                                 <div class="card">
                                     <div class="card-body" id="sname">
+                                        <?php
+                                        if (isset($_POST['SubmitButton'])) {
+                                        $servername = $_POST["servername"];
+                                        echo $servername;
+                                        }
+                                        ?>
 
                                     </div>
                                 </div>
@@ -109,7 +106,12 @@
                                 <label for="exampleInputEmail1">UserName</label>
                                 <div class="card">
                                     <div class="card-body" id="uname">
-
+                                        <?php
+                                        if (isset($_POST['SubmitButton'])) {
+                                        $username = $_POST["username"];
+                                        echo $username;
+                                        }
+                                        ?>
                                     </div>
                                 </div>
                             </div>
@@ -117,7 +119,7 @@
                                 <label for="exampleInputPassword1">Password</label>
                                 <div class="card">
                                     <div class="card-body" id="p">
-
+                                        
                                     </div>
                                 </div>
                             </div>
@@ -125,10 +127,42 @@
                                 <label for="exampleInputPassword1">Database Name</label>
                                 <div class="card">
                                     <div class="card-body" id="dname">
-
+                                        <?php
+                                        if (isset($_POST['SubmitButton'])) {
+                                        $databasename = $_POST["databasename"];
+                                        echo $databasename;
+                                        }
+                                        ?>
                                     </div>
                                 </div>
                             </div>
+
+                            <?php
+                            if (isset($_POST['SubmitButton'])) { // Check if form was submitted
+                                $servername = $_POST["servername"];
+                                $username = $_POST["username"];
+                                $password = $_POST["password"];
+                                $databasename = $_POST["databasename"];
+                                // Create connection
+                                $conn = new mysqli($servername, $username, $password);
+                                // Check connection
+                                if ($conn->connect_error) {
+                                    die("Connection failed: " . $conn->connect_error);
+                                }
+
+                                // Create database
+                                $sql = "CREATE DATABASE $databasename";
+                                if ($conn->query($sql) === TRUE) {
+                                    echo "Database created successfully";
+                                } else {
+                                    echo "Error creating database: " . $conn->error;
+                                }
+
+                                $conn->close();
+                            }
+
+                            ?>
+
                             <a class="text-primary text-center" style="text-decoration: none;" href="../../index.html">Home</a>
 
 
