@@ -52,7 +52,7 @@
             <div class="col-sm">
                 <div class="crd mx-auto">
                     <h2 class="subheading">Update Table</h2>
-                    <form method="POST" action="../php/update.php" class="mt-4 d-flex flex-column">
+                    <form method="POST" action="#" class="mt-4 d-flex flex-column">
                         <div class="form-group">
                             <label for="exampleInputEmail1">Server Name</label>
                             <input name="servername" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter servername" />
@@ -89,16 +89,16 @@
                         <div class="form-group">
                             <label for="exampleInputEmail1">Category to update:</label>
                             <select class="form-control" id="exampleFormControlSelect1" name="ucategory">
-                                    <option name="ucategory">Firstname</option>
-                                    <option name="ucategory">Lastname</option>
-                                    <option name="ucategory">Email</option>
-                                </select>
+                                <option name="ucategory">Firstname</option>
+                                <option name="ucategory">Lastname</option>
+                                <option name="ucategory">Email</option>
+                            </select>
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Updated Value</label>
                             <input name="ucvalue" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" />
                         </div>
-                        <button type="submit" class="btn__primary mt-2">Submit</button>
+                        <button type="submit" class="btn__primary mt-2" id="butsubm" name="SubmitButton">Submit</button>
                     </form>
                 </div>
 
@@ -106,11 +106,17 @@
             <div class="col-sm">
                 <div class="crd mx-auto">
                     <h2 class="subheading">Update Table</h2>
-                    <form method="POST" action="../php/update.php" class="mt-4 d-flex flex-column">
+                    <form  class="mt-4 d-flex flex-column">
                         <div class="form-group">
                             <label for="exampleInputEmail1">Server Name</label>
                             <div class="card">
                                 <div class="card-body">
+                                <?php
+                                    if (isset($_POST['SubmitButton'])) {
+                                        $servername = $_POST["servername"];
+                                        echo $servername;
+                                    }
+                                    ?>
                                 </div>
                             </div>
                         </div>
@@ -118,6 +124,12 @@
                             <label for="exampleInputEmail1">UserName</label>
                             <div class="card">
                                 <div class="card-body">
+                                <?php
+                                    if (isset($_POST['SubmitButton'])) {
+                                        $username = $_POST["username"];
+                                        echo $username;
+                                    }
+                                    ?>
                                 </div>
                             </div>
                         </div>
@@ -132,6 +144,12 @@
                             <label for="exampleInputEmail1">Database Name</label>
                             <div class="card">
                                 <div class="card-body">
+                                <?php
+                                    if (isset($_POST['SubmitButton'])) {
+                                        $dbname = $_POST["dbname"];
+                                        echo $dbname;
+                                    }
+                                    ?>
                                 </div>
                             </div>
                         </div>
@@ -139,6 +157,12 @@
                             <label for="exampleInputEmail1">TableName</label>
                             <div class="card">
                                 <div class="card-body">
+                                <?php
+                                    if (isset($_POST['SubmitButton'])) {
+                                        $tablename = $_POST["tablename"];
+                                        echo $tablename;
+                                    }
+                                    ?>
                                 </div>
                             </div>
                         </div>
@@ -146,6 +170,12 @@
                             <label for="exampleInputEmail1">Search By:</label>
                             <div class="card">
                                 <div class="card-body">
+                                <?php
+                                    if (isset($_POST['SubmitButton'])) {
+                                        $category = $_POST["category"];
+                                        echo $category;
+                                    }
+                                    ?>
                                 </div>
                             </div>
                         </div>
@@ -153,6 +183,12 @@
                             <label for="exampleInputEmail1">Exisiting Value</label>
                             <div class="card">
                                 <div class="card-body">
+                                <?php
+                                    if (isset($_POST['SubmitButton'])) {
+                                        $cvalue = $_POST["cvalue"];
+                                        echo $cvalue;
+                                    }
+                                    ?>
                                 </div>
                             </div>
                         </div>
@@ -160,6 +196,12 @@
                             <label for="exampleInputEmail1">Category to update:</label>
                             <div class="card">
                                 <div class="card-body">
+                                <?php
+                                    if (isset($_POST['SubmitButton'])) {
+                                        $ucategory = $_POST["ucategory"];
+                                        echo $ucategory;
+                                    }
+                                    ?>
                                 </div>
                             </div>
                         </div>
@@ -167,9 +209,45 @@
                             <label for="exampleInputEmail1">Updated Value</label>
                             <div class="card">
                                 <div class="card-body">
+                                <?php
+                                    if (isset($_POST['SubmitButton'])) {
+                                        $ucvalue = $_POST["ucvalue"];
+                                        echo $ucvalue;
+                                    }
+                                    ?>
                                 </div>
                             </div>
                         </div>
+                        <?php
+                        if (isset($_POST['SubmitButton'])) { // Check if form was submitted
+                            $servername = $_POST["servername"];
+                            $username = $_POST["username"];
+                            $password = $_POST["password"];
+                            $dbname = $_POST["dbname"];
+                            $category = $_POST["category"];
+                            $value = $_POST["cvalue"];
+                            $tablename = $_POST["tablename"];
+                            $ucategory = $_POST["ucategory"];
+                            $uvalue = $_POST["ucvalue"];
+                            // Create connection
+                            $conn = new mysqli($servername, $username, $password, $dbname);
+                            // Check connection
+                            if ($conn->connect_error) {
+                                die("Connection failed: " . $conn->connect_error);
+                            }
+
+                            $sql = "UPDATE $tablename SET $ucategory='$uvalue' WHERE $category='$value'";
+                            $result = $conn->query($sql);
+
+                            if (mysqli_query($conn, $sql)) {
+                                echo "Record updated successfully";
+                            } else {
+                                echo "Error updating record: " . mysqli_error($conn);
+                            }
+
+                            $conn->close();
+                        }
+                        ?>
                         <a class="text-primary text-center" style="text-decoration: none;" href="../../index.html">Home</a>
                     </form>
                 </div>

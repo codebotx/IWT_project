@@ -12,9 +12,9 @@
         <div class="container-fluid">
             <a class="navbar-brand" href="../../index.html">E-SIT IWT LAB</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
                         <a class="nav-link" href=" ./createdb.php " tabindex="-1">Crt DB</a>
@@ -52,7 +52,7 @@
             <div class="col-sm">
                 <div class="crd mx-auto">
                     <h2 class="subheading">Display Database</h2>
-                    <form method="POST" action="../php/select_data_category.php" class="mt-4 d-flex flex-column">
+                    <form method="POST" action="#" class="mt-4 d-flex flex-column">
                         <div class="form-group">
                             <label for="exampleInputEmail1">Server Name</label>
                             <input name="servername" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter servername" />
@@ -76,28 +76,34 @@
                         <div class="form-group">
                             <label for="exampleInputEmail1">Search By:</label>
                             <select class="form-control" id="exampleFormControlSelect1" name="category">
-                  <option name="category">Id</option>
-                  <option name="category">Firstname</option>
-                  <option name="category">Lastname</option>
-                  <option name="category">Email</option>
-                </select>
+                                <option name="category">Id</option>
+                                <option name="category">Firstname</option>
+                                <option name="category">Lastname</option>
+                                <option name="category">Email</option>
+                            </select>
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Value</label>
                             <input name="cvalue" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter value" />
                         </div>
-                        <button type="submit" class="btn__primary">Submit</button>
+                        <button type="submit" class="btn__primary" id="butsubm" name="SubmitButton">Submit</button>
                     </form>
                 </div>
             </div>
             <div class="col-sm">
                 <div class="crd mx-auto">
                     <h2 class="subheading">Display Database</h2>
-                    <form method="POST" action="../php/select_data_category.php" class="mt-4 d-flex flex-column">
+                    <form class="mt-4 d-flex flex-column">
                         <div class="form-group">
                             <label for="exampleInputEmail1">Server Name</label>
                             <div class="card">
                                 <div class="card-body">
+                                    <?php
+                                    if (isset($_POST['SubmitButton'])) {
+                                        $servername = $_POST["servername"];
+                                        echo $servername;
+                                    }
+                                    ?>
                                 </div>
                             </div>
                         </div>
@@ -105,6 +111,12 @@
                             <label for="exampleInputEmail1">UserName</label>
                             <div class="card">
                                 <div class="card-body">
+                                    <?php
+                                    if (isset($_POST['SubmitButton'])) {
+                                        $username = $_POST["username"];
+                                        echo $username;
+                                    }
+                                    ?>
                                 </div>
                             </div>
                         </div>
@@ -119,6 +131,12 @@
                             <label for="exampleInputEmail1">Database Name</label>
                             <div class="card">
                                 <div class="card-body">
+                                    <?php
+                                    if (isset($_POST['SubmitButton'])) {
+                                        $dbname = $_POST["dbname"];
+                                        echo $dbname;
+                                    }
+                                    ?>
                                 </div>
                             </div>
                         </div>
@@ -126,6 +144,12 @@
                             <label for="exampleInputEmail1">Table Name</label>
                             <div class="card">
                                 <div class="card-body">
+                                    <?php
+                                    if (isset($_POST['SubmitButton'])) {
+                                        $tablename = $_POST["tablename"];
+                                        echo $tablename;
+                                    }
+                                    ?>
                                 </div>
                             </div>
                         </div>
@@ -133,6 +157,13 @@
                             <label for="exampleInputEmail1">Search By:</label>
                             <div class="card">
                                 <div class="card-body">
+                                    <?php
+                                    if (isset($_POST['SubmitButton'])) {
+                                        $category = $_POST["category"];
+                                        echo $category;
+                                    }
+                                    ?>
+
                                 </div>
                             </div>
                         </div>
@@ -140,9 +171,51 @@
                             <label for="exampleInputEmail1">Value</label>
                             <div class="card">
                                 <div class="card-body">
+                                    <?php
+                                    if (isset($_POST['SubmitButton'])) {
+                                        $value = $_POST["cvalue"];
+                                        echo $value;
+                                    }
+                                    ?>
                                 </div>
                             </div>
                         </div>
+                        <?php
+                        if (isset($_POST['SubmitButton'])) { // Check if form was submitted
+                            $servername = $_POST["servername"];
+                            $username = $_POST["username"];
+                            $password = $_POST["password"];
+                            $dbname = $_POST["dbname"];
+                            $category = $_POST["category"];
+                            $value = $_POST["cvalue"];
+                            $tablename = $_POST["tablename"];
+                            // Create connection
+                            $conn = new mysqli($servername, $username, $password, $dbname);
+                            // Check connection
+                            if ($conn->connect_error) {
+                                die("Connection failed: " . $conn->connect_error);
+                            }
+
+                            $sql = "SELECT id, firstname, lastname, email,reg_date FROM $tablename WHERE $category='$value'";
+                            $result = $conn->query($sql);
+                            if ($result->num_rows > 0) {
+                                while($row = $result->fetch_assoc() ){
+                                  echo
+                                  "<tr>
+                                    <td>{$row['id']}</th>
+                                    <td>{$row['firstname']}</td>
+                                    <td>{$row['lastname']}</td>
+                                    <td>{$row['email']}</td>
+                                    <td>{$row['reg_date']}</td>
+                                  </tr>\n";
+                                }
+                              }else{
+                                echo "no results found";
+                              }
+
+                              $conn->close();
+                        }
+                        ?>
                         <a class="text-primary text-center" style="text-decoration: none;" href="../../index.html">Home</a>
                     </form>
                 </div>

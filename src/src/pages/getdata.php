@@ -11,9 +11,9 @@
         <div class="container-fluid">
             <a class="navbar-brand" href="../../index.html">E-SIT IWT LAB</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
                         <a class="nav-link" href=" ./createdb.php " tabindex="-1">Crt DB</a>
@@ -51,7 +51,7 @@
             <div class="col-sm">
                 <div class="crd mx-auto">
                     <h2 class="subheading">Get Data from Database</h2>
-                    <form method="POST" action="../php/select_data.php" class="mt-4 d-flex flex-column">
+                    <form method="POST" action="#" class="mt-4 d-flex flex-column">
                         <div class="form-group">
                             <label for="exampleInputEmail1">Server Name</label>
                             <input name="servername" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter servername" />
@@ -72,18 +72,24 @@
                             <label for="exampleInputEmail1">Table Name</label>
                             <input name="tablename" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Table Name" />
                         </div>
-                        <button type="submit" class="btn__primary mt-2">Submit</button>
+                        <button type="submit" class="btn__primary mt-2" id="butsubm" name="SubmitButton">Submit</button>
                     </form>
                 </div>
             </div>
             <div class="col-sm">
                 <div class="crd mx-auto">
                     <h2 class="subheading">Get Data from Database</h2>
-                    <form method="POST" action="../php/select_data.php" class="mt-4 d-flex flex-column">
+                    <form class="mt-4 d-flex flex-column">
                         <div class="form-group">
                             <label for="exampleInputEmail1">Server Name</label>
                             <div class="card">
                                 <div class="card-body">
+                                    <?php
+                                    if (isset($_POST['SubmitButton'])) {
+                                        $servername  = $_POST["servername"];
+                                        echo $servername;
+                                    }
+                                    ?>
                                 </div>
                             </div>
                         </div>
@@ -91,6 +97,12 @@
                             <label for="exampleInputEmail1">UserName</label>
                             <div class="card">
                                 <div class="card-body">
+                                    <?php
+                                    if (isset($_POST['SubmitButton'])) {
+                                        $username  = $_POST["username"];
+                                        echo $username;
+                                    }
+                                    ?>
                                 </div>
                             </div>
                         </div>
@@ -105,6 +117,12 @@
                             <label for="exampleInputEmail1">Database Name</label>
                             <div class="card">
                                 <div class="card-body">
+                                    <?php
+                                    if (isset($_POST['SubmitButton'])) {
+                                        $dbname  = $_POST["dbname"];
+                                        echo $dbname;
+                                    }
+                                    ?>
                                 </div>
                             </div>
                         </div>
@@ -112,10 +130,70 @@
                             <label for="exampleInputEmail1">Table Name</label>
                             <div class="card">
                                 <div class="card-body">
+                                    <?php
+                                    if (isset($_POST['SubmitButton'])) {
+                                        $tablename  = $_POST["tablename"];
+                                        echo $tablename;
+                                    }
+                                    ?>
                                 </div>
                             </div>
                         </div>
-                        <a class="text-primary text-center" style="text-decoration: none;" href="../../index.html">Home</a>
+
+
+
+
+
+                        <?php
+                        if (isset($_POST['SubmitButton'])) { // Check if form was submitted
+
+                            $servername = $_POST["servername"];
+                            $username = $_POST["username"];
+                            $password = $_POST["password"];
+                            $dbname = $_POST["dbname"];
+                            $tablename = $_POST["tablename"];
+
+                            // Create connection
+                            $conn = new mysqli($servername, $username, $password, $dbname);
+                            // Check connection
+                            if ($conn->connect_error) {
+                                die("Connection failed: " . $conn->connect_error);
+                            }
+
+                            $sql = "SELECT id, firstname, lastname, email,reg_date FROM $tablename";
+                            $result = $conn->query($sql);
+
+                        ?>
+                            <h2 class="subheading">Database</h2>
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">id</th>
+                                        <th scope="col">FirstName</th>
+                                        <th scope="col">LastName</th>
+                                        <th scope="col">Email</th>
+                                        <th scope="col">reg_date</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                <?php
+                                if ($result->num_rows > 0) {
+                                    while ($row = $result->fetch_assoc()) {
+                                        echo
+                                        "<tr>
+              <td>{$row['id']}</th>
+              <td>{$row['firstname']}</td>
+              <td>{$row['lastname']}</td>
+              <td>{$row['email']}</td>
+              <td>{$row['reg_date']}</td>
+            </tr>\n";
+                                    }
+                                } else {
+                                    echo "no results found";
+                                }
+                            }
+                                ?>
+                                <a class="text-primary text-center" style="text-decoration: none;" href="../../index.html">Home</a>
                     </form>
                 </div>
             </div>
